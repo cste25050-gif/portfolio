@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio | Eri Sekine</title>
+    <!-- Google Fonts: Noto Sans JP -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- CSS Variables & Design Tokens --- */
+        :root {
+            /* 配色：青と白を基調とした清潔感のあるデザイン */
+            --primary-color: #0288d1;       /* メインの青 */
+            --secondary-color: #e1f5fe;     /* 薄い青（背景アクセント） */
+            --accent-color: #01579b;        /* 濃い青（強調） */
+            --text-main: #333333;           /* 本文 */
+            --text-light: #666666;          /* サブテキスト */
+            --bg-body: #f5f7fa;             /* 全体の背景 */
+            --bg-card: #ffffff;             /* カード背景 */
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+            --radius: 12px;
+        }
+
+        /* --- Reset & Base Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.3s;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        /* --- Layout --- */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* --- Header --- */
+        header {
+            background-color: var(--bg-card);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 16px 0;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* --- Main Content --- */
+        main {
+            padding: 60px 0;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            color: var(--accent-color);
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 12px;
+        }
+
+        /* --- Profile Section --- */
+        .profile-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .profile-icon {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--secondary-color), #b3e5fc);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            flex-shrink: 0;
+            border: 4px solid #fff;
+            box-shadow: 0 4px 12px rgba(2, 136, 209, 0.15);
+        }
+
+        .profile-info h1 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+            letter-spacing: 0.05em;
+        }
+
+        .profile-detail {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+
+        .profile-detail i {
+            color: var(--primary-color);
+            width: 24px;
+            text-align: center;
+        }
+
+        /* --- Gakuchika Section --- */
+        .gakuchika-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 40px;
+            border-left: 6px solid var(--primary-color);
+        }
+
+        .gakuchika-text p {
+            margin-bottom: 1.5em;
+            text-align: justify;
+        }
+
+        .gakuchika-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            background: linear-gradient(transparent 70%, var(--secondary-color) 70%);
+            font-weight: 700;
+            color: var(--text-main);
+            padding: 0 4px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--bg-card);
+            text-align: center;
+            padding: 24px 0;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
+        }
+
+        /* --- Responsive Styles (Mobile) --- */
+        @media (max-width: 768px) {
+            .profile-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
+                gap: 24px;
+            }
+
+            .profile-detail {
+                justify-content: center;
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.4rem;
+            }
+
+            .gakuchika-card {
+                padding: 30px 20px;
+            }
+
+            main {
+                padding: 40px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <i class="fas fa-laptop-code"></i>
+                My Portfolio
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <!-- Profile Section -->
+        <section id="profile">
+            <h2 class="section-title">
+                <i class="fas fa-id-card"></i>
+                Profile
+            </h2>
+            <div class="profile-card">
+                <!-- Icon Placeholder -->
+                <div class="profile-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="profile-info">
+                    <h1>関根 栄利</h1>
+                    <div class="profile-detail">
+                        <i class="fas fa-university"></i>
+                        <span>日本大学 理工学部</span>
+                    </div>
+                    <div class="profile-detail">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>応用情報工学科 1年生</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gakuchika Section -->
+        <section id="gakuchika">
+            <h2 class="section-title">
+                <i class="fas fa-fire"></i>
+                Student Life Focus
+            </h2>
+            <div class="gakuchika-card">
+                <div class="gakuchika-text">
+                    <p>
+                        高校に入学したての頃、最初のテストで成績不振に陥り、強い危機感を抱きました。原因を分析するため、成績の良かった友人と比較すると勉強の仕方と勉強量に差があることが分かりました。
+                    </p>
+                    <p>
+                        友人5人程度に勉強法を聞いて回り、自分に欠けていた<span class="highlight">「アウトプット重視」の学習</span>を導入しました。またテスト２週間前には計画を立て、毎日最低2時間以上の学習時間を徹底しました。
+                    </p>
+                    <p>
+                        その結果、次回のテストでは<span class="highlight">学年順位を100位以上上げる</span>ことができました。この経験から、課題に対し客観的に分析し計画的に実行する力、そして目標達成のために他者の意見を柔軟に取り入れる重要性を学ぶことができました。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Eri Sekine. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
