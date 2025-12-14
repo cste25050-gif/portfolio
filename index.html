@@ -114,19 +114,26 @@
             gap: 40px;
         }
 
-        .profile-icon {
-            width: 120px;
-            height: 120px;
-            background: linear-gradient(135deg, var(--secondary-color), #c8e6c9);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 3.5rem;
-            color: var(--primary-color);
+        /* 写真を表示するためのコンテナスタイル */
+        .profile-image-container {
+            width: 140px;
+            height: 140px;
             flex-shrink: 0;
+            border-radius: 50%;
+            overflow: hidden; /* 画像を丸く切り抜く */
             border: 4px solid #fff;
             box-shadow: 0 4px 12px rgba(56, 142, 60, 0.15);
+            background-color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* 画像自体のスタイル */
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 縦横比を崩さずに埋める */
         }
 
         .profile-info h1 {
@@ -234,9 +241,13 @@
                 Profile
             </h2>
             <div class="profile-card">
-                <!-- Icon Placeholder -->
-                <div class="profile-icon">
-                    <i class="fas fa-user"></i>
+                <!-- Profile Image Area -->
+                <div class="profile-image-container">
+                    <!-- 
+                        【画像の変更方法】
+                        下の src="..." のURLを、使いたい画像のファイルパスやURLに書き換えてください。
+                    -->
+                    <img src="Gemini_Generated_Image_jwpbdfjwpbdfjwpb.jpg" alt="プロフィール写真" class="profile-img">
                 </div>
                 <div class="profile-info">
                     <h1>関根 栄利</h1>
